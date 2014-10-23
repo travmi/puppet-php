@@ -17,31 +17,35 @@ class php::params {
   $package_devel = $::operatingsystem ? {
     /(?i:Ubuntu|Debian|Mint)/ => 'php5-dev',
     /(?i:SLES|OpenSuSe)/      => 'php5-devel',
+    /(?i:RedHat|CentOS)/      => 'php55w-devel',
     default                   => 'php-devel',
   }
 
   $package_pear = $::operatingsystem ? {
     /(?i:Ubuntu|Debian|Mint)/ => 'php-pear',
     /(?i:SLES|OpenSuSe)/      => 'php5-pear',
+    /(?i:RedHat|CentOS)/      => 'php55w-pear',
     default                   => 'php-pear',
   }
 
   ### Application related parameters
   $module_prefix = $::operatingsystem ? {
     /(?i:Ubuntu|Debian|Mint|SLES|OpenSuSE)/ => 'php5-',
+    /(?i:RedHat|CentOS)/                    => 'php55w-',
     default                                 => 'php-',
   }
 
   $pear_module_prefix = $::operatingsystem ? {
     /(?i:Ubuntu|Debian|Mint)/             => 'php-',
     /(?i:SLES|OpenSuSe)/                  => 'php5-pear-',
-    /(?i:CentOS|RedHat|Scientific|Linux)/ => 'php-pear-',
+    /(?i:CentOS|RedHat|Scientific|Linux)/ => 'php55w-pear-',
     default                               => 'pear-',
   }
 
   $package = $::operatingsystem ? {
     /(?i:Ubuntu|Debian|Mint)/ => 'php5',
     /(?i:SLES|OpenSuSE)/      => [ 'php5','apache2-mod_php5'],
+    /(?i:RedHat|CentOS)/      => 'php55w',
     default                   => 'php',
   }
 
