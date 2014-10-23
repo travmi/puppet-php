@@ -78,7 +78,7 @@ define php::module (
       ensure  => $real_version,
       name    => $real_install_package,
       notify  => $real_service_autorestart,
-      require => Package['php'],
+      require => Package['php55w'],
     }
   }
 

@@ -29,7 +29,7 @@ class php::pear (
   ) inherits php {
 
   if ( $install_package ) {
-    package { 'php-pear':
+    package { 'php55w-pear':
       ensure => $version,
       name   => $package,
     }
